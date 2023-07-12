@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const ThemeChangeWrapper = styled.div`
   position: relative;
-  width: 50px;
-  height: 16px;
+  width: 44px;
+  height: 18px;
   background: ${prop => prop.theme.color.linear};
   overflow: hidden;
 
@@ -28,8 +28,8 @@ const ThemeChangeWrapper = styled.div`
     top: 50%;
     left: 5px;
     transform: translate(0, -50%);
-    width: 10px;
-    height: 10px;
+    width: 13px;
+    height: 13px;
     background: white;
     border-radius: 50%;
 
@@ -37,7 +37,21 @@ const ThemeChangeWrapper = styled.div`
   }
 
   .checkbox:checked ~ .checkbox-circle {
-    transform: translate(30px, -50%);
+    transform: translate(20px, -50%);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    height: 24px;
+
+    .checkbox-circle {
+      width: 18px;
+      height: 18px;
+    }
+
+    .checkbox:checked ~ .checkbox-circle {
+      transform: translate(30px, -50%);
+    }
   }
 `;
 
