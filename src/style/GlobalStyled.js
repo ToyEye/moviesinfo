@@ -41,7 +41,7 @@ export const GlobalStyled = createGlobalStyle`
 }
 
 body{
-    ${'' /* background-color: ${prop => prop.theme.color.black}; */}
+
     font-family: 'Roboto',sans-serif;
 }
 
