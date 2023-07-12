@@ -7,13 +7,13 @@ import Container from 'components/Container/Container.styled';
 import Navigation from 'components/Navigation';
 import ChangeTheme from 'components/ChangeTheme/ChangeTheme';
 
-const Layout = () => {
+const Layout = ({ toggleTheme, checked }) => {
   return (
     <>
       <HeaderStyled>
         <Container>
           <Navigation />
-          <ChangeTheme />
+          <ChangeTheme toggleTheme={toggleTheme} checked={checked} />
         </Container>
       </HeaderStyled>
       <Outlet />

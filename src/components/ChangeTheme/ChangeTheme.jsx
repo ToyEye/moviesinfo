@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { ThemeChangeWrapper } from './ChangeTheme.styled';
-import useChangeTheme from 'hooks/useChangeTheme';
+import React, { useEffect, useState, useRef } from 'react';
 
-const ChangeTheme = () => {
-  const { setChangeTheme, changeTheme } = useChangeTheme();
+import { ThemeChangeWrapper } from './ChangeTheme.styled';
+
+const ChangeTheme = ({ toggleTheme, checked }) => {
+  const [changeTheme] = useState(checked);
 
   const inputRef = useRef(null);
 
@@ -14,7 +14,7 @@ const ChangeTheme = () => {
   }, [changeTheme]);
 
   const handleOnChange = () => {
-    setChangeTheme(!changeTheme);
+    toggleTheme();
   };
 
   return (
