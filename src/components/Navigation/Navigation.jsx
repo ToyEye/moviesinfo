@@ -1,22 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router';
+
+import { useLocation } from 'react-router-dom';
+
+import NavList from 'components/NavList';
 import {
-  LinkStyled,
-  NavList,
   NavWrapper,
   MenuBtn,
   MobileMenu,
   MenuMobWrapper,
 } from './Navigation.styled';
 
-import { routes } from 'routes/routes';
-
 const Navigation = () => {
   const [isMobile, setIsmobile] = useState(() => {
     return window.matchMedia('(max-width: 767px)').matches;
   });
 
+  const [path, setPath] = useState('');
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setPath(pathname);
+
+    if (path !== pathname) {
+      setIsOpenMenu(false);
+    }
+  }, [path, pathname]);
 
   useEffect(() => {
     window
@@ -40,31 +50,13 @@ const Navigation = () => {
     }
   };
 
-  const location = useLocation();
-
   const isActive = isOpenMenu ? 'active' : '';
 
   return (
     <NavWrapper>
       {!isMobile && (
         <nav>
-          <NavList>
-            {routes.map(({ id, name, path, aria }) => {
-              const active = location.pathname === path ? 'active' : '';
-
-              return (
-                <li key={id}>
-                  <LinkStyled
-                    to={`${path}`}
-                    aria-label={aria}
-                    className={active}
-                  >
-                    {name}
-                  </LinkStyled>
-                </li>
-              );
-            })}
-          </NavList>
+          <NavList />
         </nav>
       )}
       {isMobile && (
@@ -72,23 +64,7 @@ const Navigation = () => {
           <MenuBtn onClick={handleOpenMenu}>Menu</MenuBtn>
           <MenuMobWrapper onClick={closeModal} className={isActive}>
             <MobileMenu>
-              <NavList>
-                {routes.map(({ id, name, path, aria }) => {
-                  const active = location.pathname === path ? 'active' : '';
-
-                  return (
-                    <li key={id}>
-                      <LinkStyled
-                        to={`${path}`}
-                        aria-label={aria}
-                        className={active}
-                      >
-                        {name}
-                      </LinkStyled>
-                    </li>
-                  );
-                })}
-              </NavList>
+              <NavList />
             </MobileMenu>
           </MenuMobWrapper>
         </>
