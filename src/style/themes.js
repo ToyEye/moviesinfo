@@ -6,6 +6,7 @@ export const lightTheme = {
     openMobileMenu: '#00000033',
     accent: '#F87719',
     title: '#FFFFFF',
+    secondaryText: '#F8F8F8',
     navLinks: '#595959',
     logo: '#282828',
     linear:
@@ -21,6 +22,7 @@ export const darkTheme = {
     mainBG: '#111111',
     accent: '#F87719',
     title: '#FFFFFF',
+    secondaryText: '#F8F8F8',
     navLinks: '#B7B7B7',
     logo: '#FFFFFF',
     linear:

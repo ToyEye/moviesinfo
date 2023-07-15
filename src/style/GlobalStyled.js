@@ -41,9 +41,7 @@ export const GlobalStyled = createGlobalStyle`
 }
 
 body{
-
     font-family: 'Roboto',sans-serif;
-
     background-color: ${({ theme }) => theme.color.mainBG};
 }
 
@@ -54,6 +52,12 @@ a{
 
 ul{
   list-style: none;
+}
+
+img{
+  display: block;
+  max-width:100%;
+  height:auto;
 }
 
 `;

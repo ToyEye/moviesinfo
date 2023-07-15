@@ -1,5 +1,9 @@
-import Container from 'components/Container/Container.styled';
 import React, { useEffect, useState } from 'react';
+
+import Container from 'components/Container/Container.styled';
+import HeroDescription from 'components/HeroDescription';
+import { HeroWrapper, Wrap } from './Hero.styled';
+
 import { getTrandingMovie } from 'services/api';
 
 const Hero = () => {
@@ -13,19 +17,31 @@ const Hero = () => {
 
     fetchMovie();
   }, []);
-  const random = Math.random() * 10;
-  const movie = movies[random.toFixed()];
+
+  const getRandomElement = () => {
+    if (movies.length === 0) {
+      return undefined; // Возвращаем undefined, если массив пустой
+    }
+
+    const randomIndex = Math.floor(Math.random() * movies.length);
+    return movies[randomIndex];
+  };
+
+  const movie = getRandomElement();
   console.log(movie);
+
   return (
-    <section>
-      {movies.length > 1 && (
-        <img
-          src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-          alt=""
-        />
-      )}
-      <Container></Container>
-    </section>
+    <HeroWrapper>
+      <Container>
+        {movies.length > 1 && (
+          <>
+            <Wrap back={movie.backdrop_path}>
+              <HeroDescription movie={movie} />
+            </Wrap>
+          </>
+        )}
+      </Container>
+    </HeroWrapper>
   );
 };
 
