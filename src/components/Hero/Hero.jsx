@@ -11,7 +11,7 @@ const Hero = () => {
 
   useEffect(() => {
     const fetchMovie = async () => {
-      const { results } = await getTrandingMovie();
+      const { results } = await getTrandingMovie('day');
       setMovie(results);
     };
 
@@ -20,7 +20,7 @@ const Hero = () => {
 
   const getRandomElement = () => {
     if (movies.length === 0) {
-      return undefined; // Возвращаем undefined, если массив пустой
+      return undefined;
     }
 
     const randomIndex = Math.floor(Math.random() * movies.length);
@@ -28,7 +28,6 @@ const Hero = () => {
   };
 
   const movie = getRandomElement();
-  console.log(movie);
 
   return (
     <HeroWrapper>
