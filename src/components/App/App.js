@@ -1,8 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Layout from 'components/Layout';
 import Home from 'pages/Home';
-import Tranding from 'pages/Tranding';
+import Catalog from 'pages/Catalog';
 import Library from 'pages/Library';
 
 import ThemeProvider from 'helpers/ThemeProvider';
@@ -33,9 +33,10 @@ const App = () => {
           element={<Layout toggleTheme={toggleTheme} checked={theme.checked} />}
         >
           <Route index element={<Home />} />
-          <Route path="catalog" element={<Tranding />} />
+          <Route path="catalog" element={<Catalog />} />
           <Route path="library" element={<Library />} />
         </Route>
+        <Route path="*" element={<Navigate path="/" replace={true} />} />
       </Routes>
     </ThemeProvider>
   );

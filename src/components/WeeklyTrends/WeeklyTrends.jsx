@@ -1,52 +1,57 @@
 import React, { useEffect, useState } from 'react';
+
 import Container from 'components/Container/Container.styled';
+import MovieList from 'components/MovieList';
+import {
+  Section,
+  TitleWrapper,
+  TitleStyled,
+  LinkStyled,
+} from './WeeklyTrends.styled';
+
 import { getTrandingMovie } from 'services/api';
 
-const WeeklyTrends = () => {
+const WeeklyTrends = ({ home }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const getMovies = async () => {
       const { results } = await getTrandingMovie('week');
 
-      const randomIndexes = [];
-      const result = [];
+      if (home) {
+        const randomIndexes = [];
+        const result = [];
 
-      while (randomIndexes.length < 3) {
-        const randomIndex = Math.floor(Math.random() * results.length);
+        while (randomIndexes.length < 3) {
+          const randomIndex = Math.floor(Math.random() * results.length);
 
-        if (!randomIndexes.includes(randomIndex)) {
-          randomIndexes.push(randomIndex);
-          result.push(results[randomIndex]);
+          if (!randomIndexes.includes(randomIndex)) {
+            randomIndexes.push(randomIndex);
+            result.push(results[randomIndex]);
+          }
         }
-      }
 
-      setMovies(result);
+        setMovies(result);
+      } else {
+        setMovies(results);
+      }
     };
 
     getMovies();
-  }, []);
-  console.log(movies);
+  }, [home]);
+
   return (
-    <section>
+    <Section>
       <Container>
-        <div>
-          <h2>WEEKLY TRENDS</h2>
-          <a href="/">See all</a>
-        </div>
-        <ul>
-          {movies.length > 0 &&
-            movies.map(movie => (
-              <li key={movie.id}>
-                <img
-                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt={movie.title}
-                />
-              </li>
-            ))}
-        </ul>
+        {home && (
+          <TitleWrapper>
+            <TitleStyled>WEEKLY TRENDS</TitleStyled>
+            <LinkStyled to="/catalog">See all</LinkStyled>
+          </TitleWrapper>
+        )}
+        {movies.length > 0 && <MovieList movies={movies} />}
       </Container>
-    </section>
+    </Section>
   );
 };
 
