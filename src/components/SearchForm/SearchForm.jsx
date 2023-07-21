@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
 
 import Container from 'components/Container/Container.styled';
+import {
+  Form,
+  FormDataWrapper,
+  InputStyled,
+  FormBtn,
+} from './SearchForm.styled';
 
 const SearchForm = ({ submitForm }) => {
   const [search, setSearch] = useState('');
@@ -14,19 +20,19 @@ const SearchForm = ({ submitForm }) => {
   return (
     <>
       <Container>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="search"></label>
-            <input
+        <Form onSubmit={handleSubmit}>
+          <FormDataWrapper>
+            <InputStyled
               type="text"
               id="search"
+              placeholder="Search"
               onChange={event => setSearch(event.target.value)}
             />
-          </div>
-          <button type="submit">
-            <CiSearch size={48} />
-          </button>
-        </form>
+          </FormDataWrapper>
+          <FormBtn type="submit">
+            <CiSearch size={20} />
+          </FormBtn>
+        </Form>
       </Container>
     </>
   );
