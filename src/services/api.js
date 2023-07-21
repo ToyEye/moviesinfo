@@ -11,3 +11,13 @@ export const getTrandingMovie = async period => {
   );
   return data;
 };
+
+export const getSearchFilms = async query => {
+  const { data } = await axios.get(
+    `search/movie?query=${query}&api_key=${API_KEY}`
+  );
+
+  return data;
+};
+
+// 'https://api.themoviedb.org/3/search/movie?query=star&year=2000';
