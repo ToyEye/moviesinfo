@@ -20,4 +20,10 @@ export const getSearchFilms = async query => {
   return data;
 };
 
+export const getGenres = async genresIds => {
+  const { data } = await axios.get(`genre/movie/list?api_key=${API_KEY}`);
+  return data;
+};
+
 // 'https://api.themoviedb.org/3/search/movie?query=star&year=2000';
+//  https://api.themoviedb.org/3/genre/movie/list
