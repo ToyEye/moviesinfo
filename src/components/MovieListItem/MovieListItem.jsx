@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { MovieItem } from './MovieListItem.styled';
+import { MovieItem, FilmDescription } from './MovieListItem.styled';
 import { formateDate } from 'helpers/formateDate';
 
 export const MovieListItem = ({
-  id,
   title,
   release_date,
   poster_path,
@@ -19,16 +18,23 @@ export const MovieListItem = ({
       }
     });
   }, [genres, genre_ids]);
-
+  console.log(allGenres);
   return (
     <MovieItem>
-      <h3>{title}</h3>
-      {allGenres.splice(0, 2).join(', ')}
-      <p>{formateDate(release_date)} </p>
       <img
         src={`https://image.tmdb.org/t/p/original${poster_path}`}
         alt={title}
       />
+
+      <FilmDescription>
+        <h3>{title}</h3>
+        <div>
+          <p>
+            <span>{allGenres.splice(0, 2).join(', ')}</span> |{' '}
+            <span>{formateDate(release_date)} </span>
+          </p>
+        </div>
+      </FilmDescription>
     </MovieItem>
   );
 };
