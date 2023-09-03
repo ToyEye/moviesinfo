@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { MovieListStyled, MovieItem } from './MovieList.styled';
-import { formateDate } from 'helpers/formateDate';
+
+import { MovieListStyled } from './MovieList.styled';
+
 import { getGenres } from 'services/api';
+import { MovieListItem } from 'components/MovieListItem/MovieListItem';
 
 const MovieList = ({ movies }) => {
   const [allGenres, setAllGenres] = useState([]);
@@ -19,36 +21,17 @@ const MovieList = ({ movies }) => {
     getGenresForMovie();
   }, []);
 
-  useEffect(() => {
-    const filtredGenres = array => {
-      const genres = [];
-      if (allGenres.lenght) {
-        for (const elem of allGenres) {
-          if (array.includes(elem.id)) {
-            genres.push(elem.name);
-          }
-        }
-      }
-      return genres;
-    };
-
-    console.log(filtredGenres([28, 12, 878]));
-  }, [allGenres]);
-
-  // console.log(allGenres);
-  // [28, 12, 878];
-  // console.log(filtredGenres([28, 12, 878]))
   return (
     <MovieListStyled>
-      {movies.map(movie => (
-        <MovieItem key={movie.id}>
-          <h3>{movie.title}</h3>
-          <p>{formateDate(movie.release_date)} </p>
-          <img
-            src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-            alt={movie.title}
-          />
-        </MovieItem>
+      {movies.map(({ id, title, release_date, poster_path, genre_ids }) => (
+        <MovieListItem
+          key={id}
+          title={title}
+          release_date={release_date}
+          poster_path={poster_path}
+          genres={allGenres}
+          genre_ids={genre_ids}
+        />
       ))}
     </MovieListStyled>
   );
