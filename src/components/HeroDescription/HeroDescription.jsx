@@ -9,7 +9,7 @@ const HeroDescription = ({ movie: { title, vote_average, overview } }) => {
 
   return (
     <>
-      <Heading>{title}</Heading>
+      <Heading hero>{title}</Heading>
       <Rating rating={vote_average} />
       <Description>{description}</Description>
     </>

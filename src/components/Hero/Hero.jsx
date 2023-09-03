@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
-import Container from 'components/Container/Container.styled';
 import HeroDescription from 'components/HeroDescription';
 import { HeroWrapper, Wrap } from './Hero.styled';
 
@@ -18,28 +17,28 @@ const Hero = () => {
     fetchMovie();
   }, []);
 
-  const getRandomElement = () => {
-    if (movies.length === 0) {
-      return undefined;
-    }
+  const movie = useMemo(() => {
+    const getRandomElement = () => {
+      if (movies.length === 0) {
+        return undefined;
+      }
 
-    const randomIndex = Math.floor(Math.random() * movies.length);
-    return movies[randomIndex];
-  };
+      const randomIndex = Math.floor(Math.random() * movies.length);
+      return movies[randomIndex];
+    };
 
-  const movie = getRandomElement();
+    return getRandomElement();
+  }, [movies]);
 
   return (
     <HeroWrapper>
-      <Container>
-        {movies.length > 1 && (
-          <>
-            <Wrap back={movie.backdrop_path}>
-              <HeroDescription movie={movie} />
-            </Wrap>
-          </>
-        )}
-      </Container>
+      {movies.length > 1 && (
+        <>
+          <Wrap back={movie.backdrop_path}>
+            <HeroDescription movie={movie} />
+          </Wrap>
+        </>
+      )}
     </HeroWrapper>
   );
 };

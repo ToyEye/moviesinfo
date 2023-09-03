@@ -32,6 +32,15 @@ const FormBtn = styled.button`
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  transition: 350ms cubic-bezier(0.19, 1, 0.22, 1);
+
+  &:is(:hover, :focus) {
+    scale: 1.1;
+  }
+
+  &:active {
+    scale: 0.8;
+  }
 `;
 
 export { Form, FormDataWrapper, InputStyled, FormBtn };
