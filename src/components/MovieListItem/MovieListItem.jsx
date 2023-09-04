@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
+
 import { MovieItem, FilmDescription } from './MovieListItem.styled';
+import Rating from 'components/Rating';
+
 import { formateDate } from 'helpers/formateDate';
 
 export const MovieListItem = ({
@@ -8,6 +11,7 @@ export const MovieListItem = ({
   poster_path,
   genre_ids,
   genres,
+  vote_average,
 }) => {
   const [allGenres, setAllGenres] = useState([]);
 
@@ -18,7 +22,7 @@ export const MovieListItem = ({
       }
     });
   }, [genres, genre_ids]);
-  console.log(allGenres);
+
   return (
     <MovieItem>
       <img
@@ -33,6 +37,7 @@ export const MovieListItem = ({
             <span>{allGenres.splice(0, 2).join(', ')}</span> |{' '}
             <span>{formateDate(release_date)} </span>
           </p>
+          <Rating rating={vote_average} size={18} />
         </div>
       </FilmDescription>
     </MovieItem>

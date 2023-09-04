@@ -20,9 +20,16 @@ export const MovieItem = styled.li`
 export const FilmDescription = styled.div`
   position: absolute;
   bottom: 0;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
 
   color: #ffffff;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 `;

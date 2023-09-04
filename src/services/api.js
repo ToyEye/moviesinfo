@@ -12,18 +12,19 @@ export const getTrandingMovie = async period => {
   return data;
 };
 
-export const getSearchFilms = async query => {
+export const getSearchFilms = async (query, page = 1) => {
   const { data } = await axios.get(
-    `search/movie?query=${query}&api_key=${API_KEY}`
+    `search/movie?query=${query}&api_key=${API_KEY}&page=${page}`
   );
 
   return data;
 };
 
-export const getGenres = async genresIds => {
+export const getGenres = async () => {
   const { data } = await axios.get(`genre/movie/list?api_key=${API_KEY}`);
   return data;
 };
 
+//'https://api.themoviedb.org/3/search/movie?query=cat&include_adult=false&language=en-US&page=2'
 // 'https://api.themoviedb.org/3/search/movie?query=star&year=2000';
 //  https://api.themoviedb.org/3/genre/movie/list

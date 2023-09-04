@@ -23,16 +23,19 @@ const MovieList = ({ movies }) => {
 
   return (
     <MovieListStyled>
-      {movies.map(({ id, title, release_date, poster_path, genre_ids }) => (
-        <MovieListItem
-          key={id}
-          title={title}
-          release_date={release_date}
-          poster_path={poster_path}
-          genres={allGenres}
-          genre_ids={genre_ids}
-        />
-      ))}
+      {movies.map(
+        ({ id, title, release_date, poster_path, genre_ids, vote_average }) => (
+          <MovieListItem
+            key={id}
+            title={title}
+            release_date={release_date}
+            poster_path={poster_path}
+            genres={allGenres}
+            genre_ids={genre_ids}
+            vote_average={vote_average}
+          />
+        )
+      )}
     </MovieListStyled>
   );
 };
