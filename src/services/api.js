@@ -25,6 +25,13 @@ export const getGenres = async () => {
   return data;
 };
 
+export const getInfoAboutMovie = async id => {
+  const { data } = await axios.get(`movie/${id}?api_key=${API_KEY}`);
+
+  return data;
+};
+
 //'https://api.themoviedb.org/3/search/movie?query=cat&include_adult=false&language=en-US&page=2'
 // 'https://api.themoviedb.org/3/search/movie?query=star&year=2000';
 //  https://api.themoviedb.org/3/genre/movie/list
+// 'https://api.themoviedb.org/3/movie/movie_id?language=en-US' \

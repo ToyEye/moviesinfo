@@ -16,7 +16,7 @@ const ChangeTheme = ({ toggleTheme, checked }) => {
   const handleOnChange = () => {
     toggleTheme();
   };
-  console.log(changeTheme);
+
   return (
     <ThemeChangeWrapper>
       <label className="theme-toggle">

@@ -27,6 +27,7 @@ const MovieList = ({ movies }) => {
         ({ id, title, release_date, poster_path, genre_ids, vote_average }) => (
           <MovieListItem
             key={id}
+            id={id}
             title={title}
             release_date={release_date}
             poster_path={poster_path}
