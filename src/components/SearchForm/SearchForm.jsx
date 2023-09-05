@@ -15,6 +15,8 @@ const SearchForm = ({ submitForm }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     submitForm(search);
+
+    setSearch('');
   };
 
   return (
@@ -26,6 +28,7 @@ const SearchForm = ({ submitForm }) => {
               type="text"
               id="search"
               placeholder="Search"
+              value={search}
               onChange={event => setSearch(event.target.value)}
             />
           </FormDataWrapper>
