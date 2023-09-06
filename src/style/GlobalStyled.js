@@ -43,6 +43,7 @@ export const GlobalStyled = createGlobalStyle`
 body{
     font-family: 'Roboto',sans-serif;
     background-color: ${({ theme }) => theme.color.mainBG};
+    position: relative; 
 }
 
 a{

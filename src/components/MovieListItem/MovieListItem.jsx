@@ -14,6 +14,8 @@ export const MovieListItem = ({
   genres,
   vote_average,
   id,
+  onToggleModal,
+  setMovieId,
 }) => {
   const [allGenres, setAllGenres] = useState([]);
 
@@ -25,9 +27,14 @@ export const MovieListItem = ({
     });
   }, [genres, genre_ids]);
 
+  const handleMovieClick = () => {
+    onToggleModal();
+    setMovieId(id);
+  };
+
   return (
     <>
-      <MovieItem>
+      <MovieItem onClick={handleMovieClick}>
         <img
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
           alt={title}
@@ -44,7 +51,6 @@ export const MovieListItem = ({
           </div>
         </FilmDescription>
       </MovieItem>
-      <Modal id={id} />
     </>
   );
 };
