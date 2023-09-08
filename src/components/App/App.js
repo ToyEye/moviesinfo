@@ -4,6 +4,7 @@ import Layout from 'components/Layout';
 import Home from 'pages/Home';
 import Catalog from 'pages/Catalog';
 import Library from 'pages/Library';
+import MovieDetails from 'pages/MovieDetails';
 
 import ThemeProvider from 'helpers/ThemeProvider';
 import { GlobalStyled } from 'style/GlobalStyled';
@@ -34,9 +35,11 @@ const App = () => {
         >
           <Route index element={<Home />} />
           <Route path="catalog" element={<Catalog />} />
+          <Route path="catalog/:movieDetails" element={<MovieDetails />} />
           <Route path="library" element={<Library />} />
+
+          <Route path="*" element={<Navigate path="/" replace={true} />} />
         </Route>
-        <Route path="*" element={<Navigate path="/" replace={true} />} />
       </Routes>
     </ThemeProvider>
   );

@@ -1,19 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import { ModalWrapper, ModalWindow } from './Modal.styled';
-import { getInfoAboutMovie } from 'services/api';
+import {
+  ModalWrapper,
+  ModalWindow,
+  FilmInfoWrapper,
+  ButtonWrapper,
+} from './Modal.styled';
+
+import Rating from 'components/Rating';
+import Loader from 'components/Loader';
+import Button from 'components/Button';
+import { LinkButton } from 'components/LinkStyled/LinkStyled';
+import { useGetMovieDetailss } from 'hooks/useGetMovieDetails';
 
 const Modal = ({ id, onToggleModal }) => {
-  const [movie, setMovie] = useState({});
+  const location = useLocation();
+  const { isLoading, movie } = useGetMovieDetailss(id);
 
   useEffect(() => {
-    const getMovie = async () => {
-      const data = await getInfoAboutMovie(id);
-      setMovie(data);
+    const onEscPress = evt => {
+      if (evt.code === 'Escape') {
+        onToggleModal();
+      }
     };
 
-    getMovie();
-  }, [id]);
+    window.addEventListener('keydown', onEscPress);
+
+    return () => {
+      window.removeEventListener('keydown', onEscPress);
+    };
+  }, [onToggleModal]);
 
   const handleClick = evt => {
     if (evt.target === evt.currentTarget) {
@@ -21,12 +38,35 @@ const Modal = ({ id, onToggleModal }) => {
     }
   };
 
-  const { poster_path, title, overview, release_date, vote_average } = movie;
-
   return (
     <ModalWrapper onClick={handleClick}>
+      {isLoading && <Loader />}
+
       <ModalWindow>
-        <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt="" />
+        {movie && (
+          <FilmInfoWrapper>
+            <img
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+                  : ''
+              }
+              alt={movie.title}
+            />
+            <div>
+              <p>{movie.overview}</p>
+              <p>{movie.release_date}</p>
+              <Rating rating={movie.vote_average} size={18} />
+            </div>
+          </FilmInfoWrapper>
+        )}
+
+        <ButtonWrapper>
+          <Button text="Add to library" />
+          <LinkButton to={`catalog/${id}`} state={{ from: location }}>
+            See details
+          </LinkButton>
+        </ButtonWrapper>
       </ModalWindow>
     </ModalWrapper>
   );
