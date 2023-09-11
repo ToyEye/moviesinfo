@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const MoviesSlise = createSlice({
+const moviesSlise = createSlice({
   name: 'movies',
-  initialState: [],
+  initialState: { movies: [] },
   reducers: {
     addMovie(state, { payload }) {
-      state.push(payload);
+      state.movies.push(payload);
     },
   },
 });
 
-export default MoviesSlise.reducer;
+export default moviesSlise.reducer;
 
-export const { addMovie } = MoviesSlise.actions;
+export const { addMovie } = moviesSlise.actions;

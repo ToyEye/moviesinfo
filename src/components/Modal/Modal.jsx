@@ -70,7 +70,7 @@ const Modal = ({ id, onToggleModal }) => {
 
         <ButtonWrapper>
           <Button text="Add to library" onClick={handleSaveMovie} />
-          <LinkButton to={`catalog/${id}`} state={{ from: location }}>
+          <LinkButton to={`/catalog/${id}`} state={{ from: location }}>
             See details
           </LinkButton>
         </ButtonWrapper>

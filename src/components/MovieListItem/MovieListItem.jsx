@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import { MovieItem, FilmDescription } from './MovieListItem.styled';
 import Rating from 'components/Rating';
-import Modal from 'components/Modal';
 
 import { formateDate } from 'helpers/formateDate';
 

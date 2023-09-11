@@ -40,6 +40,7 @@ const MovieList = ({ movies }) => {
             poster_path,
             genre_ids,
             vote_average,
+            genres,
           }) => (
             <MovieListItem
               key={id}
@@ -48,7 +49,7 @@ const MovieList = ({ movies }) => {
               release_date={release_date}
               poster_path={poster_path}
               genres={allGenres}
-              genre_ids={genre_ids}
+              genre_ids={genre_ids || genres}
               vote_average={vote_average}
               onToggleModal={onToggleModal}
               setMovieId={setMovieId}
