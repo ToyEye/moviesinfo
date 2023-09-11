@@ -7,9 +7,12 @@ const moviesSlise = createSlice({
     addMovie(state, { payload }) {
       state.movies.push(payload);
     },
+    deleteMovie(state, { payload }) {
+      state.movies = state.movies.filter(movie => movie.id !== payload);
+    },
   },
 });
 
 export default moviesSlise.reducer;
 
-export const { addMovie } = moviesSlise.actions;
+export const { addMovie, deleteMovie } = moviesSlise.actions;

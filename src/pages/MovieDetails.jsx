@@ -8,7 +8,6 @@ import { useGetMovieDetailss } from 'hooks/useGetMovieDetails';
 const MovieDetails = () => {
   const { movieDetails } = useParams();
   const { isLoading, movie } = useGetMovieDetailss(movieDetails);
-  console.log(movie);
 
   return (
     <div>

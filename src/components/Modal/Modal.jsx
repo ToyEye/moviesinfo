@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   ModalWrapper,
@@ -13,17 +13,33 @@ import Loader from 'components/Loader';
 import Button from 'components/Button';
 import { LinkButton } from 'components/LinkStyled/LinkStyled';
 import { useGetMovieDetailss } from 'hooks/useGetMovieDetails';
-import { addMovie } from 'redux/moviesSlice';
+import { addMovie, deleteMovie } from 'redux/moviesSlice';
 
 const Modal = ({ id, onToggleModal }) => {
+  const [isExistBtn, setIsExistBtn] = useState(false);
+
   const location = useLocation();
   const { isLoading, movie } = useGetMovieDetailss(id);
+  const movies = useSelector(state => state.movies.movies);
 
   const dispath = useDispatch();
 
   const handleSaveMovie = () => {
     dispath(addMovie(movie));
   };
+
+  const handleDeleteMovie = () => {
+    dispath(deleteMovie(id));
+  };
+
+  useEffect(() => {
+    const isEx = movies.some(movie => movie.id === id);
+    if (isEx) {
+      setIsExistBtn(isEx);
+    } else {
+      setIsExistBtn(isEx);
+    }
+  }, [id, movies, onToggleModal]);
 
   useEffect(() => {
     const onEscPress = evt => {
@@ -69,7 +85,12 @@ const Modal = ({ id, onToggleModal }) => {
         )}
 
         <ButtonWrapper>
-          <Button text="Add to library" onClick={handleSaveMovie} />
+          {isExistBtn ? (
+            <Button text="Delete from library" onClick={handleDeleteMovie} />
+          ) : (
+            <Button text="Add to library" onClick={handleSaveMovie} />
+          )}
+
           <LinkButton to={`/catalog/${id}`} state={{ from: location }}>
             See details
           </LinkButton>

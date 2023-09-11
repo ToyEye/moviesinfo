@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ModalWrapper = styled.div`
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -17,8 +17,6 @@ export const ModalWrapper = styled.div`
 export const ModalWindow = styled.div`
   position: fixed;
   display: block;
-  /* width: 50%;
-  height: 50%; */
 
   top: 50%;
   left: 50%;
