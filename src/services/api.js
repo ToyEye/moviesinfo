@@ -14,7 +14,7 @@ export const getTrandingMovie = async period => {
 
 export const getSearchFilms = async (query, page = 1) => {
   const { data } = await axios.get(
-    `search/movie?query=${query}&api_key=${API_KEY}&page=${page}`
+    `search/movie?query=${query}&include_adult=true&api_key=${API_KEY}&page=${page}`
   );
 
   return data;
