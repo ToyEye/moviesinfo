@@ -2,36 +2,38 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyled = createGlobalStyle`
 
+
+/* montserrat-regular - latin */
 @font-face {
   font-display: swap; 
-  font-family: 'Roboto';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/roboto-v30-latin-regular.woff2') format('woff2'); 
+  src: url('fonts/montserrat-v25-latin-regular.woff2') format('woff2'); 
 }
-/* roboto-500 - latin */
+/* montserrat-500 - latin */
 @font-face {
   font-display: swap; 
-  font-family: 'Roboto';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
-  src: url('fonts/roboto-v30-latin-500.woff2') format('woff2'); 
+  src: url('fonts/montserrat-v25-latin-500.woff2') format('woff2'); 
 }
-/* roboto-700 - latin */
+/* montserrat-700 - latin */
 @font-face {
   font-display: swap; 
-  font-family: 'Roboto';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
-  src: url('fonts/roboto-v30-latin-700.woff2') format('woff2'); 
+  src: url('fonts/montserrat-v25-latin-700.woff2') format('woff2'); 
 }
-/* roboto-900 - latin */
+/* montserrat-900 - latin */
 @font-face {
   font-display: swap; 
-  font-family: 'Roboto';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 900;
-  src: url('fonts/roboto-v30-latin-900.woff2') format('woff2'); 
+  src: url('fonts/montserrat-v25-latin-900.woff2') format('woff2'); 
 }
 
 *{
@@ -40,10 +42,16 @@ export const GlobalStyled = createGlobalStyle`
     box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body{
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Montserrat',sans-serif;
     background-color: ${({ theme }) => theme.color.mainBG};
     position: relative; 
+
+
 }
 
 a{

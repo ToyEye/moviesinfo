@@ -11,13 +11,13 @@ import {
   BtnUp,
 } from './Cast.styled';
 
-import { getOptionalInfo } from 'services/api';
 import Container from 'components/Container/Container.styled';
+import { useGetOptionsForMovie } from 'hooks/useGetOptionsForMovie';
 
 const Cast = () => {
-  const [cast, setCast] = useState(null);
   const { movieDetails } = useParams();
-
+  const cast = useGetOptionsForMovie('credits', movieDetails);
+  console.log(cast);
   const [showUpBtn, setShowUpBtn] = useState(false);
 
   useEffect(() => {
@@ -34,14 +34,6 @@ const Cast = () => {
       observer.observe(optionList);
     }
   }, []);
-
-  useEffect(() => {
-    const getCast = async () => {
-      const { cast } = await getOptionalInfo(movieDetails, 'credits');
-      setCast(cast);
-    };
-    getCast();
-  }, [movieDetails]);
 
   return (
     <Section>
