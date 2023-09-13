@@ -39,7 +39,7 @@ export const TextDeskrWrapper = styled.div`
 
 export const GoBackLink = styled(Link)`
   position: absolute;
-  top: 23%;
+  top: 210px;
 
   display: block;
   width: 28px;
@@ -53,10 +53,10 @@ export const GoBackLink = styled(Link)`
 
   animation: ${rotate} linear 1s infinite alternate;
   @media screen and (min-width: 768px) {
-    top: 56%;
+    top: 460px;
   }
 
   @media screen and (min-width: 1280px) {
-    top: 72%;
+    top: 750px;
   }
 `;

@@ -12,10 +12,10 @@ import logo from 'images/logo.svg';
 const Layout = ({ toggleTheme, checked }) => {
   return (
     <>
-      <HeaderStyled>
+      <HeaderStyled id="header">
         <Container className="header-container">
           <LogoLink>
-            <img src={logo} alt="logo Cinemania" /> <span>Cinemania</span>
+            <img src={logo} alt="logo Cinemania" /> <span>InfoMovies</span>
           </LogoLink>
           <Navigation />
           <ChangeTheme toggleTheme={toggleTheme} checked={checked} />

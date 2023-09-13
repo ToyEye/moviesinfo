@@ -1,6 +1,9 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Layout from 'components/Layout';
+import Cast from 'components/Cast';
+import Review from 'components/Review';
+
 import Home from 'pages/Home';
 import Catalog from 'pages/Catalog';
 import Library from 'pages/Library';
@@ -35,7 +38,10 @@ const App = () => {
         >
           <Route index element={<Home />} />
           <Route path="catalog" element={<Catalog />} />
-          <Route path="catalog/:movieDetails" element={<MovieDetails />} />
+          <Route path="catalog/:movieDetails" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="review" element={<Review />} />
+          </Route>
           <Route path="library" element={<Library />} />
 
           <Route path="*" element={<Navigate path="/" replace={true} />} />
