@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 export const Section = styled.section`
   padding-bottom: 80px;
+  padding-top: 80px;
 `;
 
 export const CastList = styled.ul`
@@ -37,8 +38,18 @@ export const CardItem = styled.li`
   border-radius: 5px;
   overflow: hidden;
 
+  height: 486px;
+
   img {
     height: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 513px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 500px;
   }
 `;
 

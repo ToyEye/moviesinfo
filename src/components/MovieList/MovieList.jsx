@@ -30,7 +30,6 @@ const MovieList = ({ movies }) => {
 
   return (
     <>
-      {' '}
       <MovieListStyled>
         {movies.map(
           ({

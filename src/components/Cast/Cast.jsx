@@ -21,13 +21,16 @@ const Cast = () => {
   const [showUpBtn, setShowUpBtn] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entrie], observer) => {
-      if (entrie.isIntersecting) {
-        setShowUpBtn(true);
-      } else {
-        setShowUpBtn(false);
-      }
-    }, {});
+    const observer = new IntersectionObserver(
+      ([entrie]) => {
+        if (entrie.isIntersecting) {
+          setShowUpBtn(true);
+        } else {
+          setShowUpBtn(false);
+        }
+      },
+      { rootMargin: '-300px' }
+    );
 
     const optionList = document.querySelector('.optionList');
     if (optionList) {
