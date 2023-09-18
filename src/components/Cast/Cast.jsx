@@ -16,8 +16,8 @@ import { useGetOptionsForMovie } from 'hooks/useGetOptionsForMovie';
 
 const Cast = () => {
   const { movieDetails } = useParams();
-  const cast = useGetOptionsForMovie('credits', movieDetails);
-  console.log(cast);
+  const { cast } = useGetOptionsForMovie('credits', movieDetails);
+
   const [showUpBtn, setShowUpBtn] = useState(false);
 
   useEffect(() => {
