@@ -12,6 +12,7 @@ import Rating from 'components/reusable/Rating';
 import Loader from 'components/Loader';
 import Button from 'components/reusable/Button';
 import { LinkButton } from 'components/reusable/LinkStyled/LinkStyled';
+
 import { useGetMovieDetailss } from 'hooks/useGetMovieDetails';
 import { addMovie, deleteMovie } from 'redux/moviesSlice';
 

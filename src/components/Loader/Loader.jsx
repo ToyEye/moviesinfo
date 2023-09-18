@@ -1,8 +1,8 @@
+import React from 'react';
 import { Blocks } from 'react-loader-spinner';
 
 import { LoaderWrapper } from './Loader.styled';
 
-import React from 'react';
 const Loader = () => {
   return (
     <LoaderWrapper>
