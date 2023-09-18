@@ -11,6 +11,8 @@ export const lightTheme = {
     logo: '#282828',
     form: '#595959',
     white: '#FFFFFF',
+    accordionPanel: '#595959',
+    accordionColor: '#FFFFFF',
     linear:
       'linear-gradient( 141.22deg,#f84119 9.4%,rgba(248, 159, 25, 0.68) 91.91%)',
   },
@@ -29,6 +31,8 @@ export const darkTheme = {
     logo: '#FFFFFF',
     form: '#B7B7B7',
     white: '#FFFFFF',
+    accordionPanel: '#FFFFFF',
+    accordionColor: '#595959',
     linear:
       'linear-gradient( 141.22deg,#f84119 9.4%,rgba(248, 159, 25, 0.68) 91.91%)',
   },

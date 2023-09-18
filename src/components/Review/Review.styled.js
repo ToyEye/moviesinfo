@@ -3,28 +3,20 @@ import styled from 'styled-components';
 export const Section = styled.section`
   padding-bottom: 80px;
   padding-top: 80px;
-`;
 
-export const ReviewList = styled.ul`
-  display: grid;
-  gap: 20px;
-`;
-
-export const ReviewItem = styled.li`
-  display: flex;
-  flex-direction: column;
-
-  @media screen and (min-width: 1280px) {
-    flex-direction: row;
+  .accordion__panel {
+    background-color: ${({ theme }) => theme.color.accordionPanel};
   }
 `;
 
-export const AuthorThumb = styled.div`
-  border-radius: 5px;
-  overflow: hidden;
-  padding: 10px 15px;
+export const ReviewDate = styled.p`
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.color.accordionColor};
 `;
 
-export const ContentThumb = styled.div`
-  padding: 10px 15px;
+export const ReviewContant = styled.p`
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.color.accordionColor};
+
+  letter-spacing: 0.02em;
 `;
