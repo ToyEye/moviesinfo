@@ -17,7 +17,7 @@ export const ModalWrapper = styled.div`
 export const ModalWindow = styled.div`
   position: fixed;
   display: block;
-
+  max-width: 700px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -28,12 +28,22 @@ export const ModalWindow = styled.div`
 
 export const FilmInfoWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 15px;
   color: ${({ theme }) => theme.color.white};
   padding: 15px;
 
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+  }
+
   p {
     margin-bottom: 25px;
+  }
+
+  img {
+    max-height: 450px;
+    max-width: 300px;
   }
 `;
 

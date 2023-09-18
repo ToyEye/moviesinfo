@@ -38,18 +38,8 @@ export const CardItem = styled.li`
   border-radius: 5px;
   overflow: hidden;
 
-  height: 486px;
-
   img {
     height: 100%;
-  }
-
-  @media screen and (min-width: 768px) {
-    height: 513px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    height: 500px;
   }
 `;
 
@@ -59,8 +49,7 @@ export const CardDesc = styled.div`
   align-items: center;
   gap: 10px;
 
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 15px;
 
   color: ${({ theme }) => theme.color.title};
 `;

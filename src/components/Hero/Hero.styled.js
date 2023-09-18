@@ -8,7 +8,7 @@ const Wrap = styled.div`
   max-width: 320px;
   height: 380px;
   margin: 0 auto;
-  height: 380px;
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;

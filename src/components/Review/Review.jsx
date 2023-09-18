@@ -30,7 +30,7 @@ const Review = () => {
                 author,
                 content,
                 created_at,
-                url,
+
                 author_details: { rating },
               }) => {
                 return (

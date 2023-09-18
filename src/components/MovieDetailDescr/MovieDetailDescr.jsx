@@ -20,30 +20,28 @@ const MovieDetailDescr = ({ movie }) => {
   const goBackPath = location?.state?.from ?? '/';
 
   return (
-    <div>
-      <Section>
-        <Container>
-          <GoBackLink to={goBackPath}>
-            <BsFillArrowLeftCircleFill size={28} />
-          </GoBackLink>
-          <MovieDetailDescrImg
-            src={
-              movie.backdrop_path
-                ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
-                : ''
-            }
-            alt={movie.title}
-          />
-          <Title>{movie.title}</Title>
-          <TextDeskrWrapper>
-            <p>{movie.overview}</p>
-            <p>Tagline: {movie.tagline}</p>
-            <p>Genres: {genres.join(', ')}</p>
-            <Rating rating={movie.vote_average} />
-          </TextDeskrWrapper>
-        </Container>
-      </Section>
-    </div>
+    <Section>
+      <Container>
+        <GoBackLink to={goBackPath}>
+          <BsFillArrowLeftCircleFill size={28} />
+        </GoBackLink>
+        <MovieDetailDescrImg
+          src={
+            movie.backdrop_path
+              ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
+              : ''
+          }
+          alt={movie.title}
+        />
+        <Title>{movie.title}</Title>
+        <TextDeskrWrapper>
+          <p>{movie.overview}</p>
+          <p>Tagline: {movie.tagline}</p>
+          <p>Genres: {genres.join(', ')}</p>
+          <Rating rating={movie.vote_average} />
+        </TextDeskrWrapper>
+      </Container>
+    </Section>
   );
 };
 

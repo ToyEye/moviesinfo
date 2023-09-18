@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const LinkButton = styled(Link)`
   font-size: 16px;
-
+  display: block;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
