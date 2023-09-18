@@ -4,7 +4,9 @@ const Heading = styled.h1`
   font-size: 32px;
   line-height: 1.17;
 
-  color: ${({ theme, hero }) => (hero ? theme.color.white : theme.color.title)};
+  color: ${({ theme, hero }) => {
+    return hero ? theme.color.white : theme.color.title;
+  }};
 
   margin-bottom: 12px;
 

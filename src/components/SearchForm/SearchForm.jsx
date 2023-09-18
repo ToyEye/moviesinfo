@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
 
-import Container from 'components/Container/Container.styled';
+import Container from 'components/reusable/Container/Container.styled';
 import {
   Form,
   FormDataWrapper,

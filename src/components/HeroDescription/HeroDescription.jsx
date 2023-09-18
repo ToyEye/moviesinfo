@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Heading, Description } from './HeroDescription.styled';
-import Rating from 'components/Rating/Rating';
+import Rating from 'components/reusable/Rating/Rating';
 
 const HeroDescription = ({ movie: { title, vote_average, overview } }) => {
   const description =

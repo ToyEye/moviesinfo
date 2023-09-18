@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
-const Section = styled.section`
+export const Section = styled.section`
   padding-top: 40px;
   padding-bottom: 28px;
+
+  .accordion__panel {
+    background-color: ${({ theme }) => theme.color.accordionPanel};
+  }
 
   @media screen and (min-width: 768px) {
     padding-top: 60px;
@@ -14,5 +18,3 @@ const Section = styled.section`
     padding-bottom: 80px;
   }
 `;
-
-export { Section };

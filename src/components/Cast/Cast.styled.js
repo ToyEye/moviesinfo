@@ -1,10 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 
-export const Section = styled.section`
-  padding-bottom: 80px;
-  padding-top: 80px;
-`;
-
 export const CastList = styled.ul`
   display: grid;
   grid-template-columns: 1fr;

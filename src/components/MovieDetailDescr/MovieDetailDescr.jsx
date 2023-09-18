@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 
-import Rating from 'components/Rating';
+import Rating from 'components/reusable/Rating';
 import {
   MovieDetailDescrImg,
   Title,
@@ -11,7 +11,7 @@ import {
   Section,
   GoBackLink,
 } from './MovieDetailDescr.styled';
-import Container from 'components/Container/Container.styled';
+import Container from 'components/reusable/Container/Container.styled';
 
 const MovieDetailDescr = ({ movie }) => {
   const genres = movie.genres.map(({ name }) => name);

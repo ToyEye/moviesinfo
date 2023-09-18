@@ -10,18 +10,23 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 import { useParams } from 'react-router-dom';
 
 import { useGetOptionsForMovie } from 'hooks/useGetOptionsForMovie';
-import Container from 'components/Container/Container.styled';
-import Rating from 'components/Rating';
+import Container from 'components/reusable/Container/Container.styled';
+import { Section } from 'components/reusable/Section/Section.styled';
+import { NoTextContent } from 'components/reusable/NoTextContent/NoTextContent';
+import Rating from 'components/reusable/Rating';
 import { formateDate } from 'helpers/formateDate';
-import { Section, ReviewDate, ReviewContant } from './Review.styled';
+import { ReviewDate, ReviewContent } from './Review.styled';
 
 const Review = () => {
   const { movieDetails } = useParams();
   const { reviews } = useGetOptionsForMovie('reviews', movieDetails);
-  console.log(reviews);
+
   return (
     <Section>
       <Container>
+        {reviews.length === 0 && (
+          <NoTextContent>Sorry, no reviews yet</NoTextContent>
+        )}
         <Accordion>
           {reviews.length > 0 &&
             reviews.map(
@@ -40,7 +45,7 @@ const Review = () => {
                     </AccordionItemHeading>
                     <AccordionItemPanel>
                       <ReviewDate>{formateDate(created_at)}</ReviewDate>
-                      <ReviewContant>{content}</ReviewContant>
+                      <ReviewContent>{content}</ReviewContent>
                       {rating && <Rating rating={rating} />}
                     </AccordionItemPanel>
                   </AccordionItem>

@@ -3,15 +3,16 @@ import { useParams } from 'react-router-dom';
 import { FaChevronUp } from 'react-icons/fa';
 
 import {
-  Section,
   CastList,
   CardDesc,
   CardItem,
   NoPhotoActor,
   BtnUp,
 } from './Cast.styled';
+import { Section } from 'components/reusable/Section/Section.styled';
+import Container from 'components/reusable/Container/Container.styled';
+import { NoTextContent } from 'components/reusable/NoTextContent/NoTextContent';
 
-import Container from 'components/Container/Container.styled';
 import { useGetOptionsForMovie } from 'hooks/useGetOptionsForMovie';
 
 const Cast = () => {
@@ -42,7 +43,8 @@ const Cast = () => {
     <Section>
       <Container>
         <CastList className="optionList">
-          {cast &&
+          {cast.length === 0 && <NoTextContent>In list no casts</NoTextContent>}
+          {cast.length > 0 &&
             cast.map(({ id, character, name, profile_path }) => (
               <CardItem key={id}>
                 {profile_path ? (

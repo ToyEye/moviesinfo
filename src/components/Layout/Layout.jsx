@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import { HeaderStyled, LogoLink } from './Layout.styled';
 
-import Container from 'components/Container/Container.styled';
+import Container from 'components/reusable/Container/Container.styled';
 import Navigation from 'components/Navigation';
 import ChangeTheme from 'components/ChangeTheme/ChangeTheme';
 

@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-import Container from 'components/Container/Container.styled';
+import Container from 'components/reusable/Container/Container.styled';
 import MovieList from 'components/MovieList';
-import {
-  Section,
-  TitleWrapper,
-  TitleStyled,
-  LinkStyled,
-} from './WeeklyTrends.styled';
+import { TitleWrapper, TitleStyled, LinkStyled } from './WeeklyTrends.styled';
+import { Section } from 'components/reusable/Section/Section.styled';
 
 import { getTrandingMovie } from 'services/api';
 

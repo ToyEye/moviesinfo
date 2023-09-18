@@ -1,21 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-const Section = styled.section`
-  padding-top: 40px;
-  padding-bottom: 32px;
-
-  @media screen and (min-width: 768px) {
-    padding-top: 52px;
-    padding-bottom: 44px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    padding-top: 80px;
-    padding-bottom: 60px;
-  }
-`;
-
 const TitleStyled = styled.h2`
   font-weight: 500;
   font-size: 16px;
@@ -60,4 +45,4 @@ const LinkStyled = styled(NavLink)`
   }
 `;
 
-export { Section, TitleWrapper, TitleStyled, LinkStyled };
+export { TitleWrapper, TitleStyled, LinkStyled };

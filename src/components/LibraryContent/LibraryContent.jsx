@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import MovieList from 'components/MovieList';
-import Container from 'components/Container/Container.styled';
+import Container from 'components/reusable/Container/Container.styled';
 import { Section, OutOfList, Title } from './LibraryContent.styled';
 
 const LibraryContent = () => {

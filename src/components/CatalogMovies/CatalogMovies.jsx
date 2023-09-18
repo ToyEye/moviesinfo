@@ -1,7 +1,7 @@
 import React from 'react';
 import MovieList from 'components/MovieList';
-import Container from 'components/Container/Container.styled';
-import { Section } from './CatalogMovies.styled';
+import Container from 'components/reusable/Container/Container.styled';
+import { Section } from 'components/reusable/Section/Section.styled';
 
 const CatalogMovies = ({ movies }) => {
   return (

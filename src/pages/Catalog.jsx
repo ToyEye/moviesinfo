@@ -4,7 +4,7 @@ import Hero from 'components/Hero';
 import CatalogMovies from 'components/CatalogMovies';
 import WeeklyTrends from 'components/WeeklyTrends/WeeklyTrends';
 import SearchForm from 'components/SearchForm/SearchForm';
-import Button from 'components/Button/Button';
+import Button from 'components/reusable/Button/Button';
 import Loader from 'components/Loader/Loader';
 
 import { getSearchFilms } from 'services/api';
